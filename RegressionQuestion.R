@@ -1,9 +1,11 @@
 
-# Clean the System & Console Variable and Set the Path --------------------
+# Clean the System & Console Variable --------------------
 rm(list = ls())
 cat("\014")
 options(warn = -1)
-# set.seed(10147153) # Just to make it reproducible
+
+# Just to make it reproducible
+# set.seed(10147153) 
 
 # Set the System Path & Variable & Output Directory Name
 if (require('here') == FALSE){
@@ -101,7 +103,7 @@ write.csv2(OtherList, file = paste0(Path, "/OtherList_", Sys_Date, ".csv") , row
 
 # fix(newdata1)
 
-# Kontrol
+# Control
 # newdata1 <- subset(RandomNumberList, RandomNumberList$No == "75", select=c(X_Var, Y_Var))
 # RegModel1 <- lm (Y_Var ~ X_Var, data = newdata1)
 # RegModel1$coefficients
