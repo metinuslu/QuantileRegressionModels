@@ -32,6 +32,10 @@ RandomNumber <- data.frame()
 
 RandomNumberList <- data.frame()
 
+Orj_RandomNumber <- data.frame()
+
+Orj_RandomNumberList <- data.frame()
+
 RegModelList <- data.frame()
 
 QuantileRegModelList1 <- data.frame()
@@ -55,6 +59,8 @@ for(i in 1:1000){
   s_percent5 <- sample(x = 1:n, size = n_percent5)
   
   OtherList <- rbind(OtherList, data.frame(No=i, SampleRank1=s_percent5[1], SampleRank2=s_percent5[2]))
+  
+  Orj_RandomNumber <- cbind(No=i, RandomNumber)
   
   RandomNumber[s_percent5, ] <- 4
   
@@ -86,7 +92,11 @@ for(i in 1:1000){
   
   RandomNumberList <- rbind(RandomNumberList, RandomNumber)
   
+  Orj_RandomNumberList <- rbind(Orj_RandomNumberList, Orj_RandomNumber)
+  
 }
+
+write.csv2(Orj_RandomNumberList, file = paste0(Path, "/Orj_RandomNumberList_", Sys_Date, ".csv") , row.names = FALSE)
 
 write.csv2(RandomNumberList, file = paste0(Path, "/RandomNumberList_", Sys_Date, ".csv") , row.names = FALSE)
 
